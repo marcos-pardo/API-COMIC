@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 
 const UsuarioSchema = new Schema({
 
-    name: { type: String, requiered: true },
-    email: { type: String, requiered: true },
+    name: { type: String, required: true },
+    email: { type: String, required: true },
     colecciones: [{ type: Schema.Types.ObjectId, ref: 'Coleccion' }]
 });
 
@@ -15,6 +15,7 @@ const UsuarioSchema = new Schema({
 
 
 //VALIDAR COLECCIONES 
+/*
 UsuarioSchema.path("colecciones").validate(
     async (coleccion: mongoose.Types.ObjectId[]) => {
       try {
@@ -27,6 +28,6 @@ UsuarioSchema.path("colecciones").validate(
       }
     }
   );
-
+*/
 export type UsuarioModelType = mongoose.Document & Omit<Usuario, "id">;
 export const UsuarioModel = mongoose.model<UsuarioModelType>("Usuario", UsuarioSchema);

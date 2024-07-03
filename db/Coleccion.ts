@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const ColeccionSchema = new Schema({
     
-    name: { type: String, requiered: true },
+    name: { type: String, required: true },
     comics: [{ type: Schema.Types.ObjectId, ref: 'Comic' }]
 });
 

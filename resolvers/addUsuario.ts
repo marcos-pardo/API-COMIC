@@ -10,7 +10,8 @@ export const addUsuario = async (req: Request, res: Response) => {
 
     const { name, email, colecciones } = req.body;
     
-    const user = await UsuarioModel.create({ name, email, colecciones:colecciones.map(coleccion => new ObjectId(coleccion))});
+    //const user = await UsuarioModel.create({ name, email, colecciones:colecciones.map(colec => new ObjectId(coleccion))});
+    const user = await UsuarioModel.create({ name, email, colecciones: colecciones.map(colec => new ObjectId(colec))});
 
     res.status(201).json(user);
     

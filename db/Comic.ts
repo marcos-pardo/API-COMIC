@@ -5,9 +5,9 @@ const Schema = mongoose.Schema;
 
 const ComicSchema = new Schema({
         
-    titulo: { type: String, requiered: true },
-    descripcion: { type: String, requiered: true },
-    formato: { type: String, requiered: true },
+    titulo: { type: String, required: true },
+    descripcion: { type: String, required: true },
+    formato: { type: String, required: true },
 });
 
 export type ComicModelType = mongoose.Document & Omit<Usuario, "id">;
