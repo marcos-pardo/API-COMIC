@@ -31,7 +31,7 @@ export const getUsuarioTodos = async (_req: Request, res: Response) => {
         }
     }))
 
-    res.status(200).send(user);
+    res.status(200).send(users);
     
 } catch (error) {
     res.status(500).send(`Error al obtener los usuarios: ${error.message}`);

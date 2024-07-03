@@ -1,12 +1,6 @@
-import express from "npm:express@4.18.2";
-import mongoose from "npm:mongoose@7.6.3";
+import express from "npm:express@4.19.2";
+import mongoose from "npm:mongoose@8.4.4";
 import { load } from "https://deno.land/std@0.204.0/dotenv/mod.ts";
-import { Usuario } from "./types.ts";
-import { Comic } from "./types.ts";
-import { Coleccion } from "./types.ts";
-import { UsuarioModel, UsuarioModelType } from "./db/Usuario.ts";
-import { ColeccionModel, ColeccionModelType } from "./db/Coleccion.ts";
-import { ComicModel, ComicModelType } from "./db/Comic.ts";
 import { addUsuario } from "./resolvers/addUsuario.ts";
 import { addColeccion } from "./resolvers/addColecciones.ts";
 import { addComic } from "./resolvers/addComic.ts";

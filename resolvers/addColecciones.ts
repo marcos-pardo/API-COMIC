@@ -9,11 +9,10 @@ export const addColeccion = async (req: Request, res: Response) => {
     try {
 
         const { name, comics } = req.body;
-    
-        const coleccion = await ColeccionModel.create({ name, comics:comics.map(comic => new ObjectId(comic))});
-    
+        const coleccion = await ColeccionModel.create({ name, comics: comics.map(comic => new ObjectId(comic))});
+
         res.status(201).json(coleccion);
-        
+
     } catch (error) {
         res.status(500).send(error.message);
         return;

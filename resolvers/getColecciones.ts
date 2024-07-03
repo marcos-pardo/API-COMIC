@@ -16,7 +16,7 @@ export const getColeccion = async (req: Request, res: Response) => {
         res.status(200).json(colecc);
 
     } catch (error) {
-       res.status(500).send("Error al obtener la coleccion");
+        res.status(500).send(`Error al obtener las colecciones: ${error.message}`);
     }
 };
  
