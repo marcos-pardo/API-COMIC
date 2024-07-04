@@ -2,14 +2,14 @@ import { Request, Response } from "npm:express@4.19.2";
 import { UsuarioModel } from "../db/Usuario.ts";
 import mongoose from "npm:mongoose@8.4.4";
 
-const ObjectId = mongoose.Types.ObjectId;
+const ObjectId = mongoose.mongo.ObjectId; //CUIDADO CON ESTO
 
 export const addUsuario = async (req: Request, res: Response) => {
     
   try {
 
     const { name, email, colecciones } = req.body;
-    const user = await UsuarioModel.create({ name, email, colecciones: colecciones.map((colec: string) => new ObjectId())});
+    const user = await UsuarioModel.create({ name, email, colecciones: colecciones.map((colec: string) => new ObjectId(colec))});
 
     res.status(201).json(user);
 

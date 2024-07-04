@@ -10,24 +10,20 @@ const UsuarioSchema = new Schema({
     colecciones: [{ type: Schema.Types.ObjectId, ref: 'Coleccion' }]
 });
 
-
-//ASI SERIA ?¿
-
-
 //VALIDAR COLECCIONES 
-/*
 UsuarioSchema.path("colecciones").validate(
-    async (coleccion: mongoose.Types.ObjectId[]) => {
+    async (col: mongoose.Types.ObjectId[]) => {
       try {
-        const colecc = await UsuarioModel.find({_id: { $in: colecciones }}).exec();
+        const colecc = await UsuarioModel.find({_id: { $in: col }}).exec();
             if (colecc.length !== colecc.length) {
                  return false;
             }
       } catch (e) {
+        console.error("Error validando colecciones en UsuarioSchema:", e);
         return false;
       }
     }
-  );
-*/
+);
+
 export type UsuarioModelType = mongoose.Document & Omit<Usuario, "id">;
 export const UsuarioModel = mongoose.model<UsuarioModelType>("Usuario", UsuarioSchema);

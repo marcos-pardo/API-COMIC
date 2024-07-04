@@ -15,13 +15,6 @@ export const getUsuario = async (req: Request, res: Response) => {
         }
 
         const colecciones = await ColeccionModel.find({ _id: { $in: user.colecciones } });
-/*         const colecciones = await Promise.all(c.map(async (coleccion) => {
-            const comics = await ComicModel.find({ _id: { $in: coleccion.comics } });
-            return {
-                name: coleccion.name,
-                comics
-            }
-        })) */
 
         res.status(200).json({
             name: user.name,
