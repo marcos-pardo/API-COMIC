@@ -1,13 +1,17 @@
 import express from "npm:express@4.19.2";
 import mongoose from "npm:mongoose@8.4.4";
 import { load } from "https://deno.land/std@0.204.0/dotenv/mod.ts";
-import { addUsuario } from "./resolvers/addUsuario.ts";
-import { addColeccion } from "./resolvers/addColecciones.ts";
-import { addComic } from "./resolvers/addComic.ts";
-import { getUsuario } from "./resolvers/getUsuario.ts";
-import { getUsuarioTodos } from "./resolvers/getUsuariosTodos.ts";
-import { getColeccion } from "./resolvers/getColecciones.ts";
-import { getComic } from "./resolvers/getComic.ts";
+import { addAutor } from "./resolvers/addAutor.ts";
+import { addLibro } from "./resolvers/addLibro.ts";
+import { getAutor } from "./resolvers/getAutor.ts";
+import { getLibro } from "./resolvers/getLibro.ts";
+import { getAutores } from "./resolvers/getAutores.ts";
+import { getLibros } from "./resolvers/getLibros.ts";
+import { putAutor } from "./resolvers/putAutor.ts";
+import { putLibro } from "./resolvers/putLibro.ts";
+import { deleteAutor } from "./resolvers/deleteAutor.ts";
+import { deleteLibro } from "./resolvers/deleteLibro.ts";
+
 
 
 const env = await load();
@@ -28,13 +32,16 @@ try {
   app.use(express.json());
 
 
-  app.post("/addUsuario", addUsuario);
-  app.post("/addComic", addComic);
-  app.post("/addColeccion", addColeccion);
-  app.get("/getComic/:id", getComic);
-  app.get("/getUsuario/:id", getUsuario);
-  app.get("/getUsuarioTodos", getUsuarioTodos);
-  app.get("/getColeccion/:id", getColeccion);
+  app.post("/addAutor", addAutor);
+  app.post("/addLibro", addLibro);
+  app.get("/getAutor/:id", getAutor);
+  app.get("/getLibro/:id", getLibro);
+  app.get("/getAutores", getAutores);
+  app.get("/getLibros", getLibros);
+  app.put("/putAutor/:id", putAutor);
+  app.put("/putLibro/:id", putLibro);
+  app.delete("/deleteAutor/:id", deleteAutor);
+  app.delete("/deleteLibro/:id", deleteLibro);
 
 
   app.listen(3000, () => {

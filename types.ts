@@ -1,19 +1,11 @@
-export type Usuario = {
+export type Autor = {
     id: string;
-    name: string;
-    email: string;
-    colecciones: Coleccion[];
+    nombreApellido: string;
+    lengua: string;
 };
 
-export type Coleccion = {
-    id: string;
-    name: string;
-    comics: Comic[];
+export type Libro = {
+    titulo: string,
+    autor: Autor,
+    anio: number
 };
-
-export type Comic = {
-    id: string;
-    titulo: string;
-    descripcion: string;
-    formato: string;
-}
